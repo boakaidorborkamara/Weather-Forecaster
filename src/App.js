@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Search from "./components/Search";
 import DailyCards from "./components/DailyCards";
@@ -7,18 +7,39 @@ import TempertureArea from "./components/TempertureArea";
 import StateName from "./components/StateName";
 import { Container, Row } from "react-bootstrap";
 
-async function getWeatherData() {
-  console.log("WORKING");
-  const response = await fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=Ganta&appid=1a5274f0df36b83fab88e81db9b5fb67"
-  );
-  const data = await response.json();
-  console.log(data);
-}
 function App() {
+  // async function getWeatherData() {
+  //   const response = await fetch(
+  //     "https://api.openweathermap.org/data/2.5/weather?q=Ganta&appid=1a5274f0df36b83fab88e81db9b5fb67"
+  //   );
+
+  //   const data = await response.json();
+  //   if (response.ok) {
+  //     console.log(data);
+  //     return data;
+  //   } else {
+  //     console.log("Didn't fetch");
+  //   }
+  // }
+
+  let [weather_info, setWeatherInfo] = useState("");
+
   useEffect(() => {
-    // getWeatherData();
-    console.log("Working");
+    (async function getWeatherData() {
+      const response = await fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=Ganta&appid=1a5274f0df36b83fab88e81db9b5fb67"
+      );
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data);
+        setWeatherInfo(data);
+        console.log("WEATHER INFO", weather_info.name);
+        return data;
+      } else {
+        console.log("Didn't fetch");
+      }
+    })();
   }, []);
 
   return (
@@ -31,7 +52,7 @@ function App() {
           {/* city name  */}
           <Row className="text-end pb-4">
             <Search />
-            <StateName />
+            <StateName state_name={weather_info} />
           </Row>
 
           {/* right side  */}
