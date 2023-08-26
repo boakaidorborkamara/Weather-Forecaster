@@ -11,16 +11,18 @@ import {
 
 function SearchBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" bg="primary" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home">WeatherForecaster</Navbar.Brand>
+        <Navbar.Brand className="fw-bold" href="#home">
+          WEATHER-FORECASTER
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav className="me-auto">
+          <Nav className="justify-content-end">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">About</Nav.Link>
           </Nav>
-          <Form inline>
+          {/* <Form inline>
             <Row>
               <Col xs="auto">
                 <Form.Control
@@ -33,7 +35,7 @@ function SearchBar() {
                 <Button type="submit">Submit</Button>
               </Col>
             </Row>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

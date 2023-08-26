@@ -1,5 +1,6 @@
 import { React, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
+import Search from "./components/Search";
 import DailyCards from "./components/DailyCards";
 import DetailTable from "./components/DetailsTable";
 import TempertureArea from "./components/TempertureArea";
@@ -25,9 +26,11 @@ function App() {
       <SearchBar />
       <Container>
         {/* first section  */}
+
         <div className="border p-5 bg-white mt-5 rounded-2">
           {/* city name  */}
           <Row className="text-end pb-4">
+            <Search />
             <StateName />
           </Row>
 
