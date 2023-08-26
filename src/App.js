@@ -16,7 +16,8 @@ async function getWeatherData() {
 }
 function App() {
   useEffect(() => {
-    getWeatherData();
+    // getWeatherData();
+    console.log("Working");
   }, []);
 
   return (
