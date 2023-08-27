@@ -1,11 +1,12 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 
-function StateName() {
+function StateName({ weather_info }) {
+  // const [state_name] = state_name;
   return (
     <Col lg="6">
       <h2>
-        Yosemite Valley <span className="fs-6">Califonia, United States</span>
+        {weather_info.name},{weather_info.sys["country"]}
       </h2>
     </Col>
   );

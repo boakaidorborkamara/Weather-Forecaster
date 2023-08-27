@@ -22,7 +22,7 @@ function App() {
   //   }
   // }
 
-  let [weather_info, setWeatherInfo] = useState("");
+  let [weather, setWeather] = useState("");
 
   useEffect(() => {
     (async function getWeatherData() {
@@ -33,8 +33,8 @@ function App() {
       const data = await response.json();
       if (response.ok) {
         console.log(data);
-        setWeatherInfo(data);
-        console.log("WEATHER INFO", weather_info.name);
+        setWeather(data);
+        console.log("WEATHER INFO", weather);
         return data;
       } else {
         console.log("Didn't fetch");
@@ -52,7 +52,7 @@ function App() {
           {/* city name  */}
           <Row className="text-end pb-4">
             <Search />
-            <StateName state_name={weather_info} />
+            <StateName weather_info={weather} />
           </Row>
 
           {/* right side  */}
