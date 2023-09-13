@@ -1,22 +1,36 @@
 import React from "react";
 import { Table, Col } from "react-bootstrap";
 
-function DetailTable() {
+function DetailTable({ weather_info }) {
   return (
     <Col>
       <Table striped bordered hover>
         <tbody>
           <tr>
-            <td>Sunrise / Sunset </td>
-            <td>7:00</td>
+            <td>Sunrise </td>
+            <td>{weather_info.sys.sunrise}</td>
           </tr>
           <tr>
-            <td>Air Quality</td>
-            <td>Jacob</td>
+            <td>Sunset </td>
+            <td>{weather_info.sys.sunset}</td>
           </tr>
           <tr>
-            <td>UV Index</td>
-            <td>Jacob</td>
+            <td>Humidity</td>
+            <td>{weather_info.main.humidity}</td>
+          </tr>
+          <tr>
+            <td>Wind Speed</td>
+            <td>{weather_info.wind.speed}</td>
+          </tr>
+          <tr>
+            <td>Latitude/Longitude</td>
+            <td>
+              {weather_info.coord.lat} / {weather_info.coord.lon}
+            </td>
+          </tr>
+          <tr>
+            <td>As of</td>
+            <td>{weather_info.coord["dt"]}</td>
           </tr>
         </tbody>
       </Table>
