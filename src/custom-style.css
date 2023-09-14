@@ -26,6 +26,6 @@ body {
 }
 
 #main-container {
-  background-color: orange;
+  /* background-color: orange; */
   height: 100vh !important;
 }
