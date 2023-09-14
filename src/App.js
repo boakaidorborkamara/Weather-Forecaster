@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Accordion } from "react-bootstrap";
 import circle from "./circle.png";
+import cloud from "./cloud.png";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
             className="text-center mt-5 p-4 d-flex align-items-center justify-content-center"
             // style={container_height_style}
           >
-            <div className="text-white">
+            <div className="text-white mt-5">
               <div>
                 <div className="mb-5">
                   <img src={circle} />
@@ -38,6 +39,116 @@ function App() {
         {/* main area */}
         <div className="col-lg-8" id="main-area">
           col-8
+          <div className=" d-flex justify-content-center flex-md-wrap-reverse text-center w-75 text-white bg-danger  ">
+            {/* weather detais card  */}
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+
+            <div className="weather-details-card p-4 m-1">
+              <p>Friday</p>
+              <div className="py-4">
+                <img src={cloud} className="card-image" />
+              </div>
+              <div className="d-flex text-center mt-3">
+                <p>31°C</p>
+                <p>78°C</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

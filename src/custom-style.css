@@ -2,11 +2,19 @@ body {
   background-color: red;
 }
 
+.card-image {
+  width: 40%;
+}
+
+.weather-details-card {
+  background-color: #1e213a;
+}
+
 #aside {
   background-color: #1e213a;
-  /* background-image: url("../public/Cloud-background.png"); */
-  /* background-size: contain; */
-  /* background-repeat: no-repeat; */
+  background-image: url("../public/Cloud-background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #main-area {
