@@ -1,31 +1,35 @@
 import React from "react";
 import { Button, Accordion } from "react-bootstrap";
+import circle from "./circle.png";
 
 function App() {
-  let container_height_style = { height: "100vh" };
   return (
-    <div className="container-fluid h-100" style={container_height_style}>
-      <div className="row">
+    <div className="container-fluid" id="main-container">
+      <div className="row h-100">
         {/* aside */}
         <div className="col-lg-4 p-3  " id="aside">
-          <div>
+          <div className="p-2">
             <Button variant="secondary">Search for places</Button>
           </div>
           <div
             className="text-center mt-5 p-4 d-flex align-items-center justify-content-center"
-            style={container_height_style}
+            // style={container_height_style}
           >
-            <div className=" bg-primary">
+            <div className="text-white">
               <div>
-                <div>
-                  <img src="..." class="img-thumbnail" alt="..." />
+                <div className="mb-5">
+                  <img src={circle} />
                 </div>
-                <h1>14℃</h1>
-                <p>broken clouds</p>
+                <h1 id="tempeture-text">14℃</h1>
+                <p className="fs-1 my-5">few clouds</p>
               </div>
               <div>
-                <p>Today • Wed, 13 Sep</p>
-                <p>Kharkiv</p>
+                <p className="my-5 fw-ligter">
+                  Today <span className="mx-4">•</span> Wed, 13 Sep
+                </p>
+                <p>
+                  <i class="bi bi-geo-alt-fill"></i> Liberia
+                </p>
               </div>
             </div>
           </div>

@@ -4,8 +4,20 @@ body {
 
 #aside {
   background-color: #1e213a;
+  /* background-image: url("../public/Cloud-background.png"); */
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
 }
 
 #main-area {
   background-color: #100e1d;
+}
+
+#tempeture-text {
+  font-size: 8em;
+}
+
+#main-container {
+  background-color: orange;
+  height: 100vh !important;
 }
