@@ -38,12 +38,12 @@ function App() {
           className="col-lg-8 d-flex flex-column  align-items-center"
           id="main-area"
         >
-          {/* tempeture section  */}
+          {/* tempeture buttons section  */}
           <div className="py-5  w-75 d-flex  justify-content-end">
             <Button variant="secondary">Search for places</Button>
           </div>
 
-          {/* cards container  */}
+          {/* week days weather details cards container  */}
           <div className=" w-75 d-flex  text-center text-white ">
             {/*  cards  */}
             <div className="weather-details-card py-4 m-2">
@@ -107,6 +107,76 @@ function App() {
                 <p>31°C</p>
                 <span className="mx-3"></span>
                 <p>78°C</p>
+              </div>
+            </div>
+          </div>
+
+          {/* today weather highlight details cards container */}
+          <div className="w-75 d-flex flex-column text-center text-white">
+            {/* section header  */}
+            <div>
+              <h4 className="pt-5 text-start">Today's Highlights</h4>
+            </div>
+
+            <div className="d-flex flex-row flex-wrap">
+              {/*  today's hightlight cards  */}
+              <div className="weather-details-card py-4   col-5">
+                <div>
+                  <p>Wind status</p>
+                </div>
+                <div>
+                  <h2 className="fs-1">
+                    7<span className="fs-3">mph</span>
+                  </h2>
+                </div>
+                <div>
+                  <p>wsw</p>
+                </div>
+              </div>
+
+              {/*  today's hightlight cards  */}
+              <div className="weather-details-card py-4  col-6">
+                <div>
+                  <p>Wind status</p>
+                </div>
+                <div>
+                  <h2 className="fs-1">
+                    7<span className="fs-3">mph</span>
+                  </h2>
+                </div>
+                <div>
+                  <p>wsw</p>
+                </div>
+              </div>
+
+              {/*  today's hightlight cards  */}
+              <div className="weather-details-card py-4  col-6">
+                <div>
+                  <p>Wind status</p>
+                </div>
+                <div>
+                  <h2 className="fs-1">
+                    7<span className="fs-3">mph</span>
+                  </h2>
+                </div>
+                <div>
+                  <p>wsw</p>
+                </div>
+              </div>
+
+              {/*  today's hightlight cards  */}
+              <div className="weather-details-card py-4  col-6">
+                <div>
+                  <p>Wind status</p>
+                </div>
+                <div>
+                  <h2 className="fs-1">
+                    7<span className="fs-3">mph</span>
+                  </h2>
+                </div>
+                <div>
+                  <p>wsw</p>
+                </div>
               </div>
             </div>
           </div>
