@@ -39,7 +39,7 @@ function App() {
           id="main-area"
         >
           {/* tempeture buttons section  */}
-          <div className="py-5  w-75 d-flex  justify-content-end">
+          <div className="py-5  w-75 d-flex  justify-content-lg-end  justify-content-sm-center">
             <div className="px-2">
               <Button variant="secondary ">°C</Button>
             </div>
