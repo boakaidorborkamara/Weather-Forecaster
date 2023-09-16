@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Accordion } from "react-bootstrap";
 import circle from "./circle.png";
 import cloud from "./cloud.png";
+import CloudBackground from "./CloudBackground.png";
 
 function App() {
   return (
@@ -12,8 +13,13 @@ function App() {
           <div className="py-5">
             <Button variant="secondary">Search for places</Button>
           </div>
-          <div className="text-center  p-4 d-flex align-items-center justify-content-center">
-            <div className="text-white ">
+          <div
+            className="text-center  p-4 d-flex flex-column align-items-center justify-content-center"
+            id="aside-sub-container"
+          >
+            {/* background image  */}
+            <img src={CloudBackground} id="aside-background-image" />
+            <div className="text-white " id="aside-text-container">
               <div>
                 <div className="mb-5">
                   <img src={circle} />
@@ -177,7 +183,7 @@ function App() {
             </div>
           </div>
 
-          <div className="mt-4 text-center text-white fw-light">
+          <div className="my-4 text-center text-white fw-light">
             Developed by: Boakai Dorbor Kamara
           </div>
         </div>

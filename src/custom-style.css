@@ -12,10 +12,23 @@ body {
 
 #aside {
   background-color: #1e213a;
-  background-image: url("../public/Cloud-background.png");
-  background-size: contain;
-  background-repeat: no-repeat;
 }
+
+#aside-sub-container {
+  position: relative;
+}
+
+#aside-background-image {
+  width: 100%;
+  opacity: 0.2;
+  position: absolute;
+  top: -25px;
+  z-index: 1;
+}
+
+/* #aside-text-container {
+  position: absolute;
+} */
 
 #main-area {
   background-color: #100e1d;
