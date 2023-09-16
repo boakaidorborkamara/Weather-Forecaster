@@ -40,7 +40,12 @@ function App() {
         >
           {/* tempeture buttons section  */}
           <div className="py-5  w-75 d-flex  justify-content-end">
-            <Button variant="secondary">Search for places</Button>
+            <div className="px-2">
+              <Button variant="secondary ">°C</Button>
+            </div>
+            <div className="px-2">
+              <Button variant="secondary">°F</Button>
+            </div>
           </div>
 
           {/* week days weather details cards container  */}
