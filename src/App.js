@@ -39,6 +39,32 @@ function App() {
           </div>
         </div>
 
+        {/* search section  */}
+        <div className="col-lg-4 px-5  " id="aside">
+          <div className="text-white py-5 d-flex justify-content-end">
+            <button
+              type="button"
+              className="btn-close btn-close-white"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div>
+            <form className="form-inline my-2 my-lg-0 d-flex">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+              />
+              <button
+                class="btn btn-outline-secondary my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+
         {/* main area */}
         <div
           className="col-lg-8 d-flex flex-column  align-items-center"
