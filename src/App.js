@@ -171,6 +171,10 @@ function App() {
               </div>
             </div>
           </div>
+
+          <div className="mt-4 text-center text-white fw-light">
+            Developed by: Boakai Dorbor Kamara
+          </div>
         </div>
       </div>
     </div>
