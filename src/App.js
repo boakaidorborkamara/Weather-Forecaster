@@ -51,12 +51,12 @@ function App() {
           <div>
             <form className="form-inline my-2 my-lg-0 d-flex">
               <input
-                class="form-control mr-sm-2"
+                className="form-control mr-sm-2 rounded-0"
                 type="search"
-                placeholder="Search"
+                placeholder="Search location"
               />
               <button
-                class="btn btn-outline-secondary my-2 my-sm-0"
+                class="btn rounded-0 btn-secondary my-2 my-sm-0"
                 type="submit"
               >
                 Search
