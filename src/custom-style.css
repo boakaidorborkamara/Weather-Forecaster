@@ -43,6 +43,14 @@ body {
   height: 100vh !important;
 }
 
+.form-control {
+  background: none !important;
+}
+
+input::placeholder {
+  color: rgb(148, 146, 146) !important;
+}
+
 .list-group-item {
   background-color: #1e213a !important;
   border: 1px dotted #1e213a !important;
@@ -50,6 +58,6 @@ body {
 }
 
 .list-group-item:hover {
-  border: 1px dotted white !important;
+  border-bottom: 1px dotted rgb(176, 92, 3) !important;
   cursor: pointer;
 }

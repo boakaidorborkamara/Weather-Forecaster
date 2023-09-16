@@ -41,6 +41,7 @@ function App() {
 
         {/* search section  */}
         <div className="col-lg-4 px-5  " id="aside">
+          {/* close button  */}
           <div className="text-white py-5 d-flex justify-content-end">
             <button
               type="button"
@@ -48,6 +49,8 @@ function App() {
               aria-label="Close"
             ></button>
           </div>
+
+          {/* search box  */}
           <div>
             <form className="form-inline my-2 my-lg-0 d-flex">
               <input
@@ -65,12 +68,6 @@ function App() {
           </div>
 
           {/* default countries  */}
-          {/* <ul className="bg-danger">
-            <li>Liberia</li>
-            <li>Ghana</li>
-            <li>Nigeria</li>
-          </ul> */}
-
           <ul className="list-group list-group-flush mt-5 ">
             <li className="list-group-item my-3 text-white ">Liberia</li>
             <li className="list-group-item my-3 text-white ">Ghana</li>
