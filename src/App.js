@@ -44,7 +44,7 @@ function App() {
           </div>
 
           {/* week days weather details cards container  */}
-          <div className=" w-75 d-flex  text-center text-white ">
+          <div className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
             {/*  cards  */}
             <div className="weather-details-card py-4 m-2">
               <div className="">
