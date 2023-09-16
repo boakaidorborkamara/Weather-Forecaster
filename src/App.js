@@ -63,6 +63,19 @@ function App() {
               </button>
             </form>
           </div>
+
+          {/* default countries  */}
+          {/* <ul className="bg-danger">
+            <li>Liberia</li>
+            <li>Ghana</li>
+            <li>Nigeria</li>
+          </ul> */}
+
+          <ul className="list-group list-group-flush mt-5 ">
+            <li className="list-group-item my-3 text-white ">Liberia</li>
+            <li className="list-group-item my-3 text-white ">Ghana</li>
+            <li className="list-group-item my-3 text-white">Guinea</li>
+          </ul>
         </div>
 
         {/* main area */}
