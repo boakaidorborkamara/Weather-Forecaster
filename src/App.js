@@ -113,14 +113,14 @@ function App() {
 
           {/* today weather highlight details cards container */}
           <div className="w-75 d-flex flex-column text-center text-white">
-            {/* section header  */}
-            <div>
-              <h4 className="pt-5 text-start">Today's Highlights</h4>
-            </div>
+            <div className="d-flex flex-wrap justify-content-center ">
+              {/* section header  */}
+              <h4 className=" col-10 pt-5 m-2 text-start">
+                Today's Highlights
+              </h4>
 
-            <div className="d-flex flex-row flex-wrap">
               {/*  today's hightlight cards  */}
-              <div className="weather-details-card py-4   col-5">
+              <div className="weather-details-card py-4 m-2  col-5">
                 <div>
                   <p>Wind status</p>
                 </div>
@@ -134,14 +134,13 @@ function App() {
                 </div>
               </div>
 
-              {/*  today's hightlight cards  */}
-              <div className="weather-details-card py-4  col-6">
+              <div className="weather-details-card py-4 m-2  col-5">
                 <div>
                   <p>Wind status</p>
                 </div>
-                <div>
-                  <h2 className="fs-1">
-                    7<span className="fs-3">mph</span>
+                <div className="">
+                  <h2>
+                    7<span>mph</span>
                   </h2>
                 </div>
                 <div>
@@ -149,8 +148,7 @@ function App() {
                 </div>
               </div>
 
-              {/*  today's hightlight cards  */}
-              <div className="weather-details-card py-4  col-6">
+              <div className="weather-details-card py-4 m-2  col-5">
                 <div>
                   <p>Wind status</p>
                 </div>
@@ -158,24 +156,17 @@ function App() {
                   <h2 className="fs-1">
                     7<span className="fs-3">mph</span>
                   </h2>
-                </div>
-                <div>
-                  <p>wsw</p>
                 </div>
               </div>
 
-              {/*  today's hightlight cards  */}
-              <div className="weather-details-card py-4  col-6">
+              <div className="weather-details-card py-4 m-2  col-5">
                 <div>
                   <p>Wind status</p>
                 </div>
-                <div>
-                  <h2 className="fs-1">
-                    7<span className="fs-3">mph</span>
+                <div className="">
+                  <h2>
+                    7<span>mph</span>
                   </h2>
-                </div>
-                <div>
-                  <p>wsw</p>
                 </div>
               </div>
             </div>
