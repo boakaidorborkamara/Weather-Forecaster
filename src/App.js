@@ -16,31 +16,31 @@ function App() {
         </div>
 
         {/* main area */}
-        <div
+        <main
           className="col-lg-8 d-flex flex-column  align-items-center"
           id="main-area"
         >
           {/* tempeture buttons section  */}
-          <div className="py-5  w-75 d-flex  justify-content-lg-end  justify-content-sm-center">
+          <section className="py-5  w-75 d-flex  justify-content-lg-end  justify-content-sm-center">
             <div className="px-2">
               <Button variant="secondary ">°C</Button>
             </div>
             <div className="px-2">
               <Button variant="secondary">°F</Button>
             </div>
-          </div>
+          </section>
 
           {/* week days weather details cards container  */}
-          <div className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
+          <section className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
             <DailyWeatherDetailsCard />
             <DailyWeatherDetailsCard />
             <DailyWeatherDetailsCard />
             <DailyWeatherDetailsCard />
             <DailyWeatherDetailsCard />
-          </div>
+          </section>
 
           {/* today weather highlight details cards container */}
-          <div className="w-75 d-flex flex-column text-center text-white">
+          <section className="w-75 d-flex flex-column text-center text-white">
             <div className="d-flex flex-wrap justify-content-center ">
               {/* section header  */}
               <h4 className=" col-10 pt-5 m-2 text-start">
@@ -98,12 +98,12 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div className="my-4 text-center text-white fw-light">
+          <footer className="my-4 text-center text-white fw-light">
             Developed by: Boakai Dorbor Kamara
-          </div>
-        </div>
+          </footer>
+        </main>
       </div>
     </div>
   );
