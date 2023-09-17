@@ -3,6 +3,7 @@ import { Button, Accordion } from "react-bootstrap";
 import cloud from "./cloud.png";
 import TodayWeatherDetails from "./components/TodayWeatherDetails";
 import MainNav from "./components/MainNav";
+import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 
 function App() {
   return (
@@ -31,70 +32,11 @@ function App() {
 
           {/* week days weather details cards container  */}
           <div className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
-            {/*  cards  */}
-            <div className="weather-details-card py-4 m-2">
-              <div className="">
-                <p>Friday</p>
-                <img src={cloud} className="card-image" />
-              </div>
-              <div className="d-flex text-center align-item-center justify-content-center mt-5">
-                <p>31°C</p>
-                <span className="mx-3"></span>
-                <p>78°C</p>
-              </div>
-            </div>
-
-            {/*  cards  */}
-            <div className="weather-details-card py-4 m-2">
-              <div className="">
-                <p>Friday</p>
-                <img src={cloud} className="card-image" />
-              </div>
-              <div className="d-flex text-center align-item-center justify-content-center mt-5">
-                <p>31°C</p>
-                <span className="mx-3"></span>
-                <p>78°C</p>
-              </div>
-            </div>
-
-            {/*  cards  */}
-            <div className="weather-details-card py-4 m-2">
-              <div className="">
-                <p>Friday</p>
-                <img src={cloud} className="card-image" />
-              </div>
-              <div className="d-flex text-center align-item-center justify-content-center mt-5">
-                <p>31°C</p>
-                <span className="mx-3"></span>
-                <p>78°C</p>
-              </div>
-            </div>
-
-            {/*  cards  */}
-            <div className="weather-details-card py-4 m-2">
-              <div className="">
-                <p>Friday</p>
-                <img src={cloud} className="card-image" />
-              </div>
-              <div className="d-flex text-center align-item-center justify-content-center mt-5">
-                <p>31°C</p>
-                <span className="mx-3"></span>
-                <p>78°C</p>
-              </div>
-            </div>
-
-            {/*  cards  */}
-            <div className="weather-details-card py-4 m-2">
-              <div className="">
-                <p>Friday</p>
-                <img src={cloud} className="card-image" />
-              </div>
-              <div className="d-flex text-center align-item-center justify-content-center mt-5">
-                <p>31°C</p>
-                <span className="mx-3"></span>
-                <p>78°C</p>
-              </div>
-            </div>
+            <DailyWeatherDetailsCard />
+            <DailyWeatherDetailsCard />
+            <DailyWeatherDetailsCard />
+            <DailyWeatherDetailsCard />
+            <DailyWeatherDetailsCard />
           </div>
 
           {/* today weather highlight details cards container */}
