@@ -4,6 +4,7 @@ import cloud from "./cloud.png";
 import TodayWeatherDetails from "./components/TodayWeatherDetails";
 import MainNav from "./components/MainNav";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
+import TodayHighlightCard from "./components/TodayHighlightCard";
 
 function App() {
   return (
@@ -48,55 +49,10 @@ function App() {
               </h4>
 
               {/*  today's hightlight cards  */}
-              <div className="weather-details-card py-4 m-2  col-5">
-                <div>
-                  <p>Wind status</p>
-                </div>
-                <div>
-                  <h2 className="fs-1">
-                    7<span className="fs-3">mph</span>
-                  </h2>
-                </div>
-                <div>
-                  <p>wsw</p>
-                </div>
-              </div>
-
-              <div className="weather-details-card py-4 m-2  col-5">
-                <div>
-                  <p>Wind status</p>
-                </div>
-                <div className="">
-                  <h2>
-                    7<span>mph</span>
-                  </h2>
-                </div>
-                <div>
-                  <p>wsw</p>
-                </div>
-              </div>
-
-              <div className="weather-details-card py-4 m-2  col-5">
-                <div>
-                  <p>Wind status</p>
-                </div>
-                <div>
-                  <h2 className="fs-1">
-                    7<span className="fs-3">mph</span>
-                  </h2>
-                </div>
-              </div>
-
-              <div className="weather-details-card py-4 m-2  col-5">
-                <div>
-                  <p>Wind status</p>
-                </div>
-                <div className="">
-                  <h2>
-                    7<span>mph</span>
-                  </h2>
-                </div>
-              </div>
+              <TodayHighlightCard />
+              <TodayHighlightCard />
+              <TodayHighlightCard />
+              <TodayHighlightCard />
             </div>
           </section>
 
