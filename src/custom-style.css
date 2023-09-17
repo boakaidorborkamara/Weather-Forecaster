@@ -43,6 +43,10 @@ body {
   height: 100vh !important;
 }
 
+#location-icon {
+  width: 1.5em;
+}
+
 .form-control {
   background: none !important;
 }

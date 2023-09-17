@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Accordion } from "react-bootstrap";
-import circle from "./circle.png";
 import cloud from "./cloud.png";
+import icon from "../src/icon.png";
 import TodayWeatherDetails from "./components/TodayWeatherDetails";
 
 function App() {
@@ -10,10 +10,15 @@ function App() {
       <div className="row h-100">
         {/* aside */}
         <div className="col-lg-4 px-5  " id="aside">
-          <div className="py-5">
-            <Button variant="secondary">Search for places</Button>
-            <TodayWeatherDetails />
+          <div className=" d-flex justify-content-between py-5">
+            <div>
+              <Button variant="secondary">Search for places</Button>
+            </div>
+            <div className=" d-flex justify-content-center align-items-center p-2 bg-secondary rounded-circle">
+              <img src={icon} id="location-icon" />
+            </div>
           </div>
+          <TodayWeatherDetails />
         </div>
 
         {/* main area */}
