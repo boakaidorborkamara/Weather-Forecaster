@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Button, Accordion } from "react-bootstrap";
 import cloud from "./cloud.png";
 import TodayWeatherDetails from "./components/TodayWeatherDetails";
@@ -11,10 +12,7 @@ function App() {
     <div className="container-fluid" id="main-container">
       <div className="row h-100">
         {/* aside */}
-        <div className="col-lg-4 px-5  " id="aside">
-          <MainNav />
-          <TodayWeatherDetails />
-        </div>
+        <MainNav />
 
         {/* main area */}
         <main
