@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import icon from "../icon.png";
+import icon from "../assests/icon.png";
 import TodayWeatherDetails from "./TodayWeatherDetails";
 
 function MainNav() {
   const [display_main_nav, setDisplayMainNav] = useState(true);
 
   const displaySearchAreaTemplate = () => {
-    setDisplayMainNav(!display_main_nav);
+    setDisplayMainNav(false);
   };
 
   const handleClose = () => {

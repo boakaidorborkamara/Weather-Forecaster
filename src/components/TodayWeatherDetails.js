@@ -1,6 +1,6 @@
 import React from "react";
-import CloudBackground from "../CloudBackground.png";
-import circle from "../circle.png";
+import CloudBackground from "../assests/CloudBackground.png";
+import circle from "../assests/circle.png";
 
 function TodayWeatherDetails() {
   return (

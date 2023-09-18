@@ -1,5 +1,5 @@
 import React from "react";
-import cloud from "../cloud.png";
+import cloud from "../assests/cloud.png";
 
 function DailyWeatherDetailsCard() {
   return (

@@ -1,8 +1,5 @@
 import React from "react";
-import { useState } from "react";
 import { Button, Accordion } from "react-bootstrap";
-import cloud from "./cloud.png";
-import TodayWeatherDetails from "./components/TodayWeatherDetails";
 import MainNav from "./components/MainNav";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
