@@ -28,16 +28,23 @@ function App() {
   const getWeatherDetails = async () => {
     let url = "https://open-weather13.p.rapidapi.com/city/landon";
 
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "8267f7a4e0mshf69609913b1eb22p11bd12jsn710ca9ddccf3",
-        "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
-      },
-    });
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key":
+            "8267f7a4e0mshf69609913b1eb22p11bd12jsn710ca9ddccf3",
+          "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+        },
+      });
 
-    const data = await response.json();
-    console.log(data);
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      if (err) {
+        console.log(err);
+      }
+    }
   };
 
   useEffect(() => {
