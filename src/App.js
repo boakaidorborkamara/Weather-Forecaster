@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Accordion } from "react-bootstrap";
 import MainNav from "./components/MainNav";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
 
 function App() {
+  const getUserCurrentLocation = async () => {
+    if ("geolocation" in navigator) {
+      /* geolocation is available */
+      await navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log("POSITION", position);
+          return position;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } else {
+      /* geolocation IS NOT available */
+      return 1;
+    }
+  };
+
+  useEffect(() => {
+    getUserCurrentLocation();
+
+    console.log("use effect");
+    let url = "https://open-weather13.p.rapidapi.com/city/landon";
+
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "8267f7a4e0mshf69609913b1eb22p11bd12jsn710ca9ddccf3",
+        "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
+
   return (
     <div className="container-fluid" id="main-container">
       <div className="row h-100">
