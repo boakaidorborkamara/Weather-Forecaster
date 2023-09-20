@@ -11,7 +11,11 @@ function App() {
     // get and return the position of the user
     return new Promise((resolve, reject) => {
       function success(position) {
-        resolve(position);
+        let location_detials = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+        resolve(location_detials);
       }
 
       function errorCallback() {
@@ -30,11 +34,10 @@ function App() {
 
   async function getWeatherDetailsBasedOnsCoordinates(latitude, longitude) {
     console.log("geting lon and lat.....");
-    // let user_geo_location = { lat, lon };
-    console.log(latitude);
+    let user_geo_location = { latitude, longitude };
+    console.log("user geo loc", user_geo_location);
 
-    let url =
-      "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=2a00ef36f427254b5dfdd9778fa22207";
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${user_geo_location.latitude}&lon=${user_geo_location.longitude}&appid=`;
 
     try {
       const response = await fetch(url, {
@@ -42,7 +45,7 @@ function App() {
       });
 
       const data = await response.json();
-      console.log(data);
+      console.log("DATA", data);
       return data;
     } catch (err) {
       if (err) {
@@ -51,17 +54,20 @@ function App() {
     }
   }
 
-  useEffect(async () => {
-    let current_location_coordinates =
+  useEffect(() => {
+    let current_location_coordinates = (async () => {
       await getUserCurrentLocationCoordinates();
+    })();
 
     console.log("Current location coordinates", current_location_coordinates);
 
     console.log("ABout to call getweather fnx");
-    // await getWeatherDetailsBasedOnsCoordinates(
-    //   current_location_coordinates["latitude"],
-    //   current_location_coordinates["longitude"]
-    // );
+    (async () => {
+      getWeatherDetailsBasedOnsCoordinates(
+        current_location_coordinates.latitude,
+        current_location_coordinates.longitude
+      );
+    })();
     // console.log(weather_details);
 
     console.log("use effect");
