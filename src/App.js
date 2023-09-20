@@ -7,49 +7,62 @@ import TodayHighlightCard from "./components/TodayHighlightCard";
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
 
-  const getUserCurrentLocation = async () => {
-    if ("geolocation" in navigator) {
-      /* geolocation is available */
-      await navigator.geolocation.getCurrentPosition(
-        (position) => {
-          console.log("POSITION", position);
-          return position;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    } else {
-      /* geolocation IS NOT available */
-      return 1;
-    }
-  };
+  async function getUserCurrentLocationCoordinates() {
+    // get and return the position of the user
+    return new Promise((resolve, reject) => {
+      function success(position) {
+        resolve(position);
+      }
 
-  const getWeatherDetails = async () => {
-    let url = "https://open-weather13.p.rapidapi.com/city/landon";
+      function errorCallback() {
+        console.log("Error occured");
+      }
+
+      // get position if geolocation is supported on user brower
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(success, errorCallback);
+      } else {
+        console.log("Geolocation doesn't esist");
+        return { code: 1, msg: "Geolocation doesn't esist" };
+      }
+    });
+  }
+
+  async function getWeatherDetailsBasedOnsCoordinates(latitude, longitude) {
+    console.log("geting lon and lat.....");
+    // let user_geo_location = { lat, lon };
+    console.log(latitude);
+
+    let url =
+      "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=2a00ef36f427254b5dfdd9778fa22207";
 
     try {
       const response = await fetch(url, {
         method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "8267f7a4e0mshf69609913b1eb22p11bd12jsn710ca9ddccf3",
-          "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
-        },
       });
 
       const data = await response.json();
       console.log(data);
+      return data;
     } catch (err) {
       if (err) {
         console.log(err);
       }
     }
-  };
+  }
 
-  useEffect(() => {
-    getUserCurrentLocation();
-    getWeatherDetails();
+  useEffect(async () => {
+    let current_location_coordinates =
+      await getUserCurrentLocationCoordinates();
+
+    console.log("Current location coordinates", current_location_coordinates);
+
+    console.log("ABout to call getweather fnx");
+    // await getWeatherDetailsBasedOnsCoordinates(
+    //   current_location_coordinates["latitude"],
+    //   current_location_coordinates["longitude"]
+    // );
+    // console.log(weather_details);
 
     console.log("use effect");
   }, []);
