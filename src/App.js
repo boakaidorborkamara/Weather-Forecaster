@@ -4,6 +4,8 @@ import MainNav from "./components/MainNav";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
 
+let api_key = "";
+
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
 
@@ -32,12 +34,12 @@ function App() {
     });
   }
 
-  async function getWeatherDetailsBasedOnsCoordinates(latitude, longitude) {
+  async function getCurrentWeatherDetails(latitude, longitude) {
     console.log("geting lon and lat.....");
     let user_geo_location = { latitude, longitude };
     console.log("user geo loc", user_geo_location);
 
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${user_geo_location.latitude}&lon=${user_geo_location.longitude}&appid=`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${user_geo_location.latitude}&lon=${user_geo_location.longitude}&appid=${api_key}`;
 
     try {
       const response = await fetch(url, {
@@ -54,23 +56,25 @@ function App() {
     }
   }
 
+  async function getFiveDaysForeCast(latitude, longitude) {
+    let user_geo_location = { latitude, longitude };
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${user_geo_location.latitude}&lon=${user_geo_location.longitude}&appid=${api_key}`;
+  }
+
   useEffect(() => {
-    let current_location_coordinates = (async () => {
-      await getUserCurrentLocationCoordinates();
-    })();
+    let getDetails = async () => {
+      let current_location_coordinates =
+        await getUserCurrentLocationCoordinates();
 
-    console.log("Current location coordinates", current_location_coordinates);
+      console.log("Current location coordinates", current_location_coordinates);
 
-    console.log("ABout to call getweather fnx");
-    (async () => {
-      getWeatherDetailsBasedOnsCoordinates(
+      getCurrentWeatherDetails(
         current_location_coordinates.latitude,
         current_location_coordinates.longitude
       );
-    })();
-    // console.log(weather_details);
+    };
 
-    console.log("use effect");
+    getDetails();
   }, []);
 
   return (
