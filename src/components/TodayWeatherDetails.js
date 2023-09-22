@@ -25,7 +25,7 @@ function TodayWeatherDetails() {
             Today <span className="mx-4">•</span> Wed, 13 Sep
           </p>
           <p>
-            <i class="bi bi-geo-alt-fill"></i> Liberia
+            <i className="bi bi-geo-alt-fill"></i> Liberia
           </p>
         </div>
       </div>

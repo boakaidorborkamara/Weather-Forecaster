@@ -60,26 +60,28 @@ function App() {
   }
 
   useEffect(() => {
-    let getDetails = async () => {
+    (async () => {
       let current_location_coordinates =
         await getUserCurrentLocationCoordinates();
 
       console.log("Current location coordinates", current_location_coordinates);
 
-      getWeatherDetails(
+      let details = await getWeatherDetails(
         current_location_coordinates.latitude,
         current_location_coordinates.longitude
       );
-    };
 
-    getDetails();
+      setWeatherDetails(...weather_details, details);
+
+      console.log("WEATHER DETAILS", weather_details);
+    })();
   }, []);
 
   return (
     <div className="container-fluid" id="main-container">
       <div className="row h-100">
         {/* aside */}
-        <MainNav />
+        <MainNav weather_details={weather_details} />
 
         {/* main area */}
         <main

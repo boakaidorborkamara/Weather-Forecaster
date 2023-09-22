@@ -4,7 +4,8 @@ import { Button } from "react-bootstrap";
 import icon from "../assests/icon.png";
 import TodayWeatherDetails from "./TodayWeatherDetails";
 
-function MainNav() {
+function MainNav(props) {
+  console.log("PROPS", props);
   const [display_main_nav, setDisplayMainNav] = useState(true);
 
   const displaySearchAreaTemplate = () => {
