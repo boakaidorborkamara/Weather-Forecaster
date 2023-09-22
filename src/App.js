@@ -34,17 +34,20 @@ function App() {
     });
   }
 
-  async function getCurrentWeatherDetails(latitude, longitude) {
+  async function getWeatherDetails(latitude, longitude) {
     console.log("geting lon and lat.....");
     let user_geo_location = { latitude, longitude };
     console.log("user geo loc", user_geo_location);
 
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${user_geo_location.latitude}&lon=${user_geo_location.longitude}&appid=${api_key}`;
+    let BaseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`;
 
     try {
-      const response = await fetch(url, {
-        method: "GET",
-      });
+      const response = await fetch(
+        `${BaseUrl}/${latitude},${longitude}/next5days?unitGroup=metric&include=current&key=${api_key}&contentType=json`,
+        {
+          method: "GET",
+        }
+      );
 
       const data = await response.json();
       console.log("DATA", data);
@@ -56,11 +59,6 @@ function App() {
     }
   }
 
-  async function getFiveDaysForeCast(latitude, longitude) {
-    let user_geo_location = { latitude, longitude };
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${user_geo_location.latitude}&lon=${user_geo_location.longitude}&appid=${api_key}`;
-  }
-
   useEffect(() => {
     let getDetails = async () => {
       let current_location_coordinates =
@@ -68,7 +66,7 @@ function App() {
 
       console.log("Current location coordinates", current_location_coordinates);
 
-      getCurrentWeatherDetails(
+      getWeatherDetails(
         current_location_coordinates.latitude,
         current_location_coordinates.longitude
       );
