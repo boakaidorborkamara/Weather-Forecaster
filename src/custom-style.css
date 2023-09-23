@@ -47,6 +47,10 @@ body {
   width: 1.5em;
 }
 
+#loading-msg-container {
+  height: 100vh;
+}
+
 .form-control {
   background: none !important;
 }

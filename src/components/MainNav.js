@@ -9,13 +9,21 @@ function MainNav({ weather_details }) {
   console.log("PROPS", weather_details);
   const [display_main_nav, setDisplayMainNav] = useState(true);
 
+  // hide search section when the close button is clicked
   const handleClose = () => {
     setDisplayMainNav(true);
   };
 
+  // send signal that search area template should display
   const displaySearchAreaTemplate = () => {
     setDisplayMainNav(false);
   };
+
+  // converts date from milliseconds to readable format
+  function convertDate(epoch_timestamp) {
+    let today = new Date(epoch_timestamp * 1000).toLocaleDateString();
+    return today;
+  }
 
   // contains main navigation and weather overview
   const main_navigation_template = (
@@ -43,15 +51,21 @@ function MainNav({ weather_details }) {
             <div className="mb-5">
               <img src={circle} />
             </div>
-            <h1 id="tempeture-text">9℃</h1>
-            <p className="fs-2 my-5">few clouds</p>
+            <h1 id="tempeture-text">
+              {weather_details.currentConditions.feelslike}℃
+            </h1>
+            <p className="fs-2 my-5">
+              {weather_details.currentConditions.conditions}
+            </p>
           </div>
           <div>
             <p className="my-5 fw-ligter">
-              Today <span className="mx-4">•</span> Wed, 13 Sep
+              Today <span className="mx-4">•</span>{" "}
+              {convertDate(weather_details.currentConditions.datetimeEpoch)}
             </p>
             <p>
-              <i className="bi bi-geo-alt-fill"></i> Liberia
+              <i className="bi bi-geo-alt-fill"></i>{" "}
+              {weather_details.resolvedAddress}
             </p>
           </div>
         </div>

@@ -41,7 +41,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `${BaseUrl}/${latitude},${longitude}/next5days?iconSet=icons1&combinationMethod=aggregate&shortColumnNames=true&locationMode=single&aggregateHours=24&unitGroup=metric&include=current&key=${api_key}&contentType=json`,
+        `${BaseUrl}/${latitude},${longitude}Crown%20Hill%2C%20LR/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
         {
           method: "GET",
         }
@@ -71,7 +71,6 @@ function App() {
       setWeatherDetails(...weather_details, details);
 
       setIsLoading(false);
-      console.log("Losding", isLoading);
 
       console.log("WEATHER DETAILS", weather_details);
     })();
@@ -80,7 +79,21 @@ function App() {
   let content;
 
   if (isLoading === true) {
-    content = <p>Loading</p>;
+    content = (
+      <div
+        className=" d-flex justify-content-center align-items-center"
+        id="loading-msg-container"
+      >
+        <button className="btn btn-dark" type="button" disabled>
+          <span
+            class="spinner-grow spinner-grow-sm"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          Loading...
+        </button>
+      </div>
+    );
   } else {
     content = (
       <div className="container-fluid" id="main-container">
