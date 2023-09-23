@@ -4,10 +4,12 @@ import MainNav from "./components/MainNav";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
 
+let BaseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`;
 let api_key = "";
 
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
+  let [isLoading, setIsLoading] = useState(true);
 
   async function getUserCurrentLocationCoordinates() {
     // get and return the position of the user
@@ -35,15 +37,11 @@ function App() {
   }
 
   async function getWeatherDetails(latitude, longitude) {
-    console.log("geting lon and lat.....");
     let user_geo_location = { latitude, longitude };
-    console.log("user geo loc", user_geo_location);
-
-    let BaseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`;
 
     try {
       const response = await fetch(
-        `${BaseUrl}/${latitude},${longitude}/next5days?unitGroup=metric&include=current&key=${api_key}&contentType=json`,
+        `${BaseUrl}/${latitude},${longitude}/next5days?iconSet=icons1&combinationMethod=aggregate&shortColumnNames=true&locationMode=single&aggregateHours=24&unitGroup=metric&include=current&key=${api_key}&contentType=json`,
         {
           method: "GET",
         }
@@ -63,8 +61,7 @@ function App() {
     (async () => {
       let current_location_coordinates =
         await getUserCurrentLocationCoordinates();
-
-      console.log("Current location coordinates", current_location_coordinates);
+      console.log(current_location_coordinates);
 
       let details = await getWeatherDetails(
         current_location_coordinates.latitude,
@@ -73,63 +70,74 @@ function App() {
 
       setWeatherDetails(...weather_details, details);
 
+      setIsLoading(false);
+      console.log("Losding", isLoading);
+
       console.log("WEATHER DETAILS", weather_details);
     })();
   }, []);
 
-  return (
-    <div className="container-fluid" id="main-container">
-      <div className="row h-100">
-        {/* aside */}
-        <MainNav weather_details={weather_details} />
+  let content;
 
-        {/* main area */}
-        <main
-          className="col-lg-8 d-flex flex-column  align-items-center"
-          id="main-area"
-        >
-          {/* tempeture buttons section  */}
-          <section className="py-5  w-75 d-flex  justify-content-lg-end  justify-content-sm-center">
-            <div className="px-2">
-              <Button variant="secondary ">°C</Button>
-            </div>
-            <div className="px-2">
-              <Button variant="secondary">°F</Button>
-            </div>
-          </section>
+  if (isLoading === true) {
+    content = <p>Loading</p>;
+  } else {
+    content = (
+      <div className="container-fluid" id="main-container">
+        <div className="row h-100">
+          {/* aside */}
+          <MainNav weather_details={weather_details} />
 
-          {/* week days weather details cards container  */}
-          <section className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
-            <DailyWeatherDetailsCard />
-            <DailyWeatherDetailsCard />
-            <DailyWeatherDetailsCard />
-            <DailyWeatherDetailsCard />
-            <DailyWeatherDetailsCard />
-          </section>
+          {/* main area */}
+          <main
+            className="col-lg-8 d-flex flex-column  align-items-center"
+            id="main-area"
+          >
+            {/* tempeture buttons section  */}
+            <section className="py-5  w-75 d-flex  justify-content-lg-end  justify-content-sm-center">
+              <div className="px-2">
+                <Button variant="secondary ">°C</Button>
+              </div>
+              <div className="px-2">
+                <Button variant="secondary">°F</Button>
+              </div>
+            </section>
 
-          {/* today weather highlight details cards container */}
-          <section className="w-75 d-flex flex-column text-center text-white">
-            <div className="d-flex flex-wrap justify-content-center ">
-              {/* section header  */}
-              <h4 className=" col-10 pt-5 m-2 text-start">
-                Today's Highlights
-              </h4>
+            {/* week days weather details cards container  */}
+            <section className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
+              <DailyWeatherDetailsCard />
+              <DailyWeatherDetailsCard />
+              <DailyWeatherDetailsCard />
+              <DailyWeatherDetailsCard />
+              <DailyWeatherDetailsCard />
+            </section>
 
-              {/*  today's hightlight cards  */}
-              <TodayHighlightCard />
-              <TodayHighlightCard />
-              <TodayHighlightCard />
-              <TodayHighlightCard />
-            </div>
-          </section>
+            {/* today weather highlight details cards container */}
+            <section className="w-75 d-flex flex-column text-center text-white">
+              <div className="d-flex flex-wrap justify-content-center ">
+                {/* section header  */}
+                <h4 className=" col-10 pt-5 m-2 text-start">
+                  Today's Highlights
+                </h4>
 
-          <footer className="my-4 text-center text-white fw-light">
-            Developed by: Boakai Dorbor Kamara
-          </footer>
-        </main>
+                {/*  today's hightlight cards  */}
+                <TodayHighlightCard />
+                <TodayHighlightCard />
+                <TodayHighlightCard />
+                <TodayHighlightCard />
+              </div>
+            </section>
+
+            <footer className="my-4 text-center text-white fw-light">
+              Developed by: Boakai Dorbor Kamara
+            </footer>
+          </main>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return content;
 }
 
 export default App;

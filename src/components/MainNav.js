@@ -2,21 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import icon from "../assests/icon.png";
-import TodayWeatherDetails from "./TodayWeatherDetails";
+import CloudBackground from "../assests/CloudBackground.png";
+import circle from "../assests/circle.png";
 
-function MainNav(props) {
-  console.log("PROPS", props);
+function MainNav({ weather_details }) {
+  console.log("PROPS", weather_details);
   const [display_main_nav, setDisplayMainNav] = useState(true);
-
-  const displaySearchAreaTemplate = () => {
-    setDisplayMainNav(false);
-  };
 
   const handleClose = () => {
     setDisplayMainNav(true);
   };
 
-  // contains main navigation
+  const displaySearchAreaTemplate = () => {
+    setDisplayMainNav(false);
+  };
+
+  // contains main navigation and weather overview
   const main_navigation_template = (
     <div className="col-lg-4 px-5  " id="aside">
       <div className=" d-flex justify-content-between py-5">
@@ -29,7 +30,32 @@ function MainNav(props) {
           <img src={icon} id="location-icon" />
         </div>
       </div>
-      <TodayWeatherDetails />
+      <div
+        className="text-center  p-4 d-flex flex-column align-items-center justify-content-center"
+        id="aside-sub-container"
+      >
+        {/* background image  */}
+        <img src={CloudBackground} id="aside-background-image" />
+
+        {/* today's weather details  */}
+        <div className="text-white " id="aside-text-container">
+          <div>
+            <div className="mb-5">
+              <img src={circle} />
+            </div>
+            <h1 id="tempeture-text">9℃</h1>
+            <p className="fs-2 my-5">few clouds</p>
+          </div>
+          <div>
+            <p className="my-5 fw-ligter">
+              Today <span className="mx-4">•</span> Wed, 13 Sep
+            </p>
+            <p>
+              <i className="bi bi-geo-alt-fill"></i> Liberia
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 
@@ -72,6 +98,7 @@ function MainNav(props) {
     </div>
   );
 
+  // condititonally render main_navigation_template or search_area_template
   return display_main_nav ? main_navigation_template : search_area_template;
 }
 
