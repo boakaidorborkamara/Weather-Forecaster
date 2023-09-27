@@ -118,11 +118,15 @@ function App() {
 
             {/* week days weather details cards container  */}
             <section className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
-              <DailyWeatherDetailsCard />
-              <DailyWeatherDetailsCard />
-              <DailyWeatherDetailsCard />
-              <DailyWeatherDetailsCard />
-              <DailyWeatherDetailsCard />
+              {console.log(weather_details.days)}
+              {weather_details.days.map((day) => {
+                let day_index = weather_details.days.indexOf(day);
+
+                if (day_index !== 0) {
+                  return <DailyWeatherDetailsCard day_details={day} />;
+                  console.log(day.datetime, day.icon, day.tempmin, day.tempmax);
+                }
+              })}
             </section>
 
             {/* today weather highlight details cards container */}

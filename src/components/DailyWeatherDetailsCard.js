@@ -1,7 +1,10 @@
 import React from "react";
 import cloud from "../assests/cloud.png";
 
-function DailyWeatherDetailsCard() {
+function DailyWeatherDetailsCard({ day_details }) {
+  console.log("day details", day_details);
+  // console.log(day.datetime, day.icon, day.tempmin, day.tempmax);
+
   return (
     <div className="weather-details-card py-4 m-2">
       <div className="">

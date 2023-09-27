@@ -27,7 +27,7 @@ function MainNav({ weather_details }) {
 
   // contains main navigation and weather overview
   const main_navigation_template = (
-    <div className="col-lg-4 px-5  " id="aside">
+    <div className="col-lg-4 px-5  pb-sm-5 " id="aside">
       <div className=" d-flex justify-content-between py-5">
         <div>
           <Button variant="secondary" onClick={displaySearchAreaTemplate}>
@@ -95,7 +95,7 @@ function MainNav({ weather_details }) {
             placeholder="Search location"
           />
           <button
-            class="btn rounded-0 btn-secondary my-2 my-sm-0"
+            className="btn rounded-0 btn-secondary my-2 my-sm-0"
             type="submit"
           >
             Search
