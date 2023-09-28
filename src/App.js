@@ -1,3 +1,4 @@
+// require("dotenv").config();
 import React, { useEffect, useState } from "react";
 import { Button, Accordion } from "react-bootstrap";
 import MainNav from "./components/MainNav";
@@ -5,7 +6,7 @@ import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
 
 let BaseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`;
-let api_key = "";
+let api_key = process.env.REACT_APP_API_KEY;
 
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
