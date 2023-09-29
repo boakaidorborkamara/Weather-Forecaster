@@ -6,7 +6,7 @@ function DailyWeatherDetailsCard({ day_details }) {
     <div className="weather-details-card py-4 m-2">
       <div className="">
         <p>{day_details.datetime}</p>
-        <img src={day_details.icon} className="card-image" />
+        <img src={`../assets/rain.png`} className="card-image" />
       </div>
       <div className="d-flex text-center align-item-center justify-content-center mt-5">
         <p>{day_details.tempmin}°C</p>
