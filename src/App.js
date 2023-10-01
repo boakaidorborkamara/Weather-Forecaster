@@ -4,6 +4,7 @@ import { Button, Accordion } from "react-bootstrap";
 import MainNav from "./components/MainNav";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
+import getUserCurrentLocationCoordinates from "./Helper/getUserCurrentLocation";
 
 let BaseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`;
 let api_key = process.env.REACT_APP_API_KEY;
@@ -12,37 +13,12 @@ function App() {
   let [weather_details, setWeatherDetails] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
 
-  async function getUserCurrentLocationCoordinates() {
-    // get and return the position of the user
-    return new Promise((resolve, reject) => {
-      function success(position) {
-        let location_detials = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        };
-        resolve(location_detials);
-      }
-
-      function errorCallback() {
-        console.log("Error occured");
-      }
-
-      // get position if geolocation is supported on user brower
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(success, errorCallback);
-      } else {
-        console.log("Geolocation doesn't esist");
-        return { code: 1, msg: "Geolocation doesn't esist" };
-      }
-    });
-  }
-
   async function getWeatherDetails(latitude, longitude) {
     let user_geo_location = { latitude, longitude };
 
     try {
       const response = await fetch(
-        `${BaseUrl}/${latitude},${longitude}Crown%20Hill%2C%20LR/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
+        `${BaseUrl}/Ghana/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
         {
           method: "GET",
         }

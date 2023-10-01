@@ -49,7 +49,9 @@ function MainNav({ weather_details }) {
         <div className="text-white " id="aside-text-container">
           <div>
             <div className="mb-5">
-              <img src={circle} />
+              <img
+                src={require(`../assests/${weather_details.currentConditions.icon}.svg`)}
+              />
             </div>
             <h1 id="tempeture-text">
               {weather_details.currentConditions.feelslike}℃
