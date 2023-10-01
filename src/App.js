@@ -1,57 +1,17 @@
 // require("dotenv").config();
-import React, { useEffect, useState } from "react";
-import { Button, Accordion } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import MainNav from "./components/MainNav";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
-import getUserCurrentLocationCoordinates from "./Helper/getUserCurrentLocation";
-
-let BaseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`;
-let api_key = process.env.REACT_APP_API_KEY;
+import useGetWeatherRequest from "./Hook/useGetWeatherRequest";
 
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
 
-  async function getWeatherDetails(latitude, longitude) {
-    let user_geo_location = { latitude, longitude };
-
-    try {
-      const response = await fetch(
-        `${BaseUrl}/Ghana/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
-        {
-          method: "GET",
-        }
-      );
-
-      const data = await response.json();
-      console.log("DATA", data);
-      return data;
-    } catch (err) {
-      if (err) {
-        console.log(err);
-      }
-    }
-  }
-
-  useEffect(() => {
-    (async () => {
-      let current_location_coordinates =
-        await getUserCurrentLocationCoordinates();
-      console.log(current_location_coordinates);
-
-      let details = await getWeatherDetails(
-        current_location_coordinates.latitude,
-        current_location_coordinates.longitude
-      );
-
-      setWeatherDetails(...weather_details, details);
-
-      setIsLoading(false);
-
-      console.log("WEATHER DETAILS", weather_details);
-    })();
-  }, []);
+  // get weather details base on user location
+  useGetWeatherRequest(weather_details, setWeatherDetails, setIsLoading);
 
   let content;
 
