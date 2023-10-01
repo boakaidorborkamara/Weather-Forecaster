@@ -2,12 +2,11 @@
 import React, { useState } from "react";
 import MainNav from "./components/MainNav";
 import TemperatureButton from "./components/TemperatureButtons";
-import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
-import TodayHighlightCard from "./components/TodayHighlightCard";
 import useGetWeatherRequest from "./Hook/useGetWeatherRequest";
 import LoadingScreen from "./components/LoadingScreen";
 import FiveDaysForecastSection from "./components/FiveDaysForecastSection";
 import TodayHighlightSection from "./components/TodayHilightSection";
+import Footer from "./components/Footer";
 
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
@@ -26,7 +25,6 @@ function App() {
         <div className="row h-100">
           {/* aside */}
           <MainNav weather_details={weather_details} />
-
           {/* main area */}
           <main
             className="col-lg-8 d-flex flex-column  align-items-center"
@@ -35,10 +33,7 @@ function App() {
             <TemperatureButton />
             <FiveDaysForecastSection weather_details={weather_details} />
             <TodayHighlightSection />
-
-            <footer className="my-4 text-center text-white fw-light">
-              Developed by: Boakai Dorbor Kamara
-            </footer>
+            <Footer />
           </main>
         </div>
       </div>
