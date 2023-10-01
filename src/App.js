@@ -1,10 +1,11 @@
 // require("dotenv").config();
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import MainNav from "./components/MainNav";
+import TemperatureButton from "./components/TemperatureButtons";
 import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
 import useGetWeatherRequest from "./Hook/useGetWeatherRequest";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
@@ -13,24 +14,10 @@ function App() {
   // get weather details base on user location
   useGetWeatherRequest(weather_details, setWeatherDetails, setIsLoading);
 
+  // conditionally render loading screen or main content
   let content;
-
   if (isLoading === true) {
-    content = (
-      <div
-        className=" d-flex justify-content-center align-items-center"
-        id="loading-msg-container"
-      >
-        <button className="btn btn-dark" type="button" disabled>
-          <span
-            class="spinner-grow spinner-grow-sm"
-            role="status"
-            aria-hidden="true"
-          ></span>
-          Loading...
-        </button>
-      </div>
-    );
+    content = <LoadingScreen />;
   } else {
     content = (
       <div className="container-fluid" id="main-container">
@@ -43,25 +30,16 @@ function App() {
             className="col-lg-8 d-flex flex-column  align-items-center"
             id="main-area"
           >
-            {/* tempeture buttons section  */}
-            <section className="py-5  w-75 d-flex  justify-content-lg-end  justify-content-sm-center">
-              <div className="px-2">
-                <Button variant="secondary ">°C</Button>
-              </div>
-              <div className="px-2">
-                <Button variant="secondary">°F</Button>
-              </div>
-            </section>
+            <TemperatureButton />
 
             {/* week days weather details cards container  */}
             <section className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
-              {console.log(weather_details.days)}
               {weather_details.days.map((day) => {
                 let day_index = weather_details.days.indexOf(day);
 
+                // exclude the first element
                 if (day_index !== 0) {
                   return <DailyWeatherDetailsCard day_details={day} />;
-                  console.log(day.datetime, day.icon, day.tempmin, day.tempmax);
                 }
               })}
             </section>
