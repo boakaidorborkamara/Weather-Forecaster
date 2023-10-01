@@ -6,6 +6,7 @@ import DailyWeatherDetailsCard from "./components/DailyWeatherDetailsCard";
 import TodayHighlightCard from "./components/TodayHighlightCard";
 import useGetWeatherRequest from "./Hook/useGetWeatherRequest";
 import LoadingScreen from "./components/LoadingScreen";
+import FiveDaysForecastSection from "./components/FiveDaysForecastSection";
 
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
@@ -31,18 +32,7 @@ function App() {
             id="main-area"
           >
             <TemperatureButton />
-
-            {/* week days weather details cards container  */}
-            <section className=" w-75 d-flex flex-wrap justify-content-center  text-center text-white ">
-              {weather_details.days.map((day) => {
-                let day_index = weather_details.days.indexOf(day);
-
-                // exclude the first element
-                if (day_index !== 0) {
-                  return <DailyWeatherDetailsCard day_details={day} />;
-                }
-              })}
-            </section>
+            <FiveDaysForecastSection weather_details={weather_details} />
 
             {/* today weather highlight details cards container */}
             <section className="w-75 d-flex flex-column text-center text-white">
