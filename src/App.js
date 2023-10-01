@@ -7,6 +7,7 @@ import TodayHighlightCard from "./components/TodayHighlightCard";
 import useGetWeatherRequest from "./Hook/useGetWeatherRequest";
 import LoadingScreen from "./components/LoadingScreen";
 import FiveDaysForecastSection from "./components/FiveDaysForecastSection";
+import TodayHighlightSection from "./components/TodayHilightSection";
 
 function App() {
   let [weather_details, setWeatherDetails] = useState([]);
@@ -33,22 +34,7 @@ function App() {
           >
             <TemperatureButton />
             <FiveDaysForecastSection weather_details={weather_details} />
-
-            {/* today weather highlight details cards container */}
-            <section className="w-75 d-flex flex-column text-center text-white">
-              <div className="d-flex flex-wrap justify-content-center ">
-                {/* section header  */}
-                <h4 className=" col-10 pt-5 m-2 text-start">
-                  Today's Highlights
-                </h4>
-
-                {/*  today's hightlight cards  */}
-                <TodayHighlightCard />
-                <TodayHighlightCard />
-                <TodayHighlightCard />
-                <TodayHighlightCard />
-              </div>
-            </section>
+            <TodayHighlightSection />
 
             <footer className="my-4 text-center text-white fw-light">
               Developed by: Boakai Dorbor Kamara

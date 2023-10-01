@@ -6,7 +6,7 @@ async function getWeatherDetails(latitude, longitude) {
 
   try {
     const response = await fetch(
-      `${BaseUrl}/Ghana/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
+      `${BaseUrl}/Algeria/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
       {
         method: "GET",
       }
