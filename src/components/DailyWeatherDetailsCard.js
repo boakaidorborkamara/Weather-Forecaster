@@ -1,6 +1,5 @@
 import React from "react";
-// import cloud from "../assests/cloud.png";
-// import rain from "../assests/rain.png";
+import formatDate from "../Helper/formatDate";
 
 function DailyWeatherDetailsCard({ day_details }) {
   // function setIcon(image_name){
@@ -11,7 +10,7 @@ function DailyWeatherDetailsCard({ day_details }) {
   return (
     <div className="weather-details-card py-2 m-2">
       <div className="">
-        <p>{day_details.datetime}</p>
+        <p>{formatDate(day_details.datetime)}</p>
         <div>
           <img
             src={require(`../assests/${day_details.icon}.svg`)}
