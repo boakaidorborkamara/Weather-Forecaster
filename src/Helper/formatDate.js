@@ -2,15 +2,7 @@ function formatDate(user_date) {
   // create a date Object using the new keyword
   let new_date = new Date(user_date);
 
-  let week_days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let week_days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
   let months = [
     "Jan",
@@ -33,7 +25,7 @@ function formatDate(user_date) {
   let month = months[new_date.getMonth()];
   let year = new_date.getFullYear();
 
-  let readale_date = `${day},${month} ${date}, ${year}`;
+  let readale_date = `${day}, ${month} ${date}, ${year}`;
 
   return readale_date;
 }
