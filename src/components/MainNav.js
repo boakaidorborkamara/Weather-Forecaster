@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import icon from "../assests/icon.png";
 import CloudBackground from "../assests/CloudBackground.png";
-import circle from "../assests/circle.png";
+import formatDate from "../Helper/formatDate";
 
 function MainNav({ weather_details }) {
   console.log("PROPS", weather_details);
@@ -63,7 +63,9 @@ function MainNav({ weather_details }) {
           <div>
             <p className="my-5 fw-ligter">
               Today <span className="mx-4">•</span>{" "}
-              {convertDate(weather_details.currentConditions.datetimeEpoch)}
+              {formatDate(
+                convertDate(weather_details.currentConditions.datetimeEpoch)
+              )}
             </p>
             <p>
               <i className="bi bi-geo-alt-fill"></i>{" "}
