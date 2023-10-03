@@ -20,7 +20,6 @@ function formatDate(user_date) {
   ];
 
   let test_obj = { day: new_date.getDate() };
-  console.log("date_obj", test_obj);
   //   Get needed info from the date object and make them readable
   let day = week_days[new_date.getDay()];
   let date = new_date.getDate();

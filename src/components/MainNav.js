@@ -8,6 +8,7 @@ import formatDate from "../Helper/formatDate";
 function MainNav({ weather_details }) {
   console.log("PROPS", weather_details);
   const [display_main_nav, setDisplayMainNav] = useState(true);
+  const [countryToSearch, setCountryToSearch] = useState("");
 
   // hide search section when the close button is clicked
   const handleClose = () => {
@@ -23,6 +24,14 @@ function MainNav({ weather_details }) {
   function convertDate(epoch_timestamp) {
     let today = new Date(epoch_timestamp * 1000).toLocaleDateString();
     return today;
+  }
+
+  function handleInput(e) {
+    console.log("typing....");
+    let userInput = e.target.value;
+    setCountryToSearch(userInput);
+    console.log("country to search", countryToSearch);
+    console.log(userInput);
   }
 
   // contains main navigation and weather overview
@@ -48,13 +57,13 @@ function MainNav({ weather_details }) {
         {/* today's weather details  */}
         <div className="text-white " id="aside-text-container">
           <div>
-            <div className="mb-5">
+            <div className="mb-5 pb-5">
               <img
                 src={require(`../assests/${weather_details.currentConditions.icon}.svg`)}
                 id="current-day-weather-icon"
               />
             </div>
-            <h1 id="tempeture-text">
+            <h1 id="tempeture-text" className="mt-5 pt-5">
               {weather_details.currentConditions.feelslike}℃
             </h1>
             <p className="fs-2 my-5">
@@ -98,6 +107,7 @@ function MainNav({ weather_details }) {
             className="form-control mr-sm-2 rounded-0"
             type="search"
             placeholder="Search location"
+            onInput={handleInput}
           />
           <button
             className="btn rounded-0 btn-secondary my-2 my-sm-0"
