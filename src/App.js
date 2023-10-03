@@ -32,7 +32,7 @@ function App() {
           >
             <TemperatureButton />
             <FiveDaysForecastSection weather_details={weather_details} />
-            <TodayHighlightSection />
+            <TodayHighlightSection weather_details={weather_details} />
             <Footer />
           </main>
         </div>

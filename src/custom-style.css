@@ -22,8 +22,12 @@ body {
   width: 100%;
   opacity: 0.2;
   position: absolute;
-  top: -25px;
+  top: -27px;
   z-index: 1;
+}
+
+#current-day-weather-icon {
+  width: 70%;
 }
 
 /* #aside-text-container {

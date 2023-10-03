@@ -51,6 +51,7 @@ function MainNav({ weather_details }) {
             <div className="mb-5">
               <img
                 src={require(`../assests/${weather_details.currentConditions.icon}.svg`)}
+                id="current-day-weather-icon"
               />
             </div>
             <h1 id="tempeture-text">

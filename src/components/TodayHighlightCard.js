@@ -1,18 +1,16 @@
 import React from "react";
 
-function TodayHighlightCard() {
+function TodayHighlightCard({ card_name, value, measurement }) {
   return (
     <div className="weather-details-card py-4 m-2  col-5">
       <div>
-        <p>Wind status</p>
+        <p>{card_name}</p>
       </div>
       <div>
         <h2 className="fs-1">
-          7<span className="fs-3">mph</span>
+          {value}
+          <span className="fs-3">{measurement}</span>
         </h2>
-      </div>
-      <div>
-        <p>wsw</p>
       </div>
     </div>
   );
