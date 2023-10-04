@@ -5,10 +5,8 @@ import icon from "../assests/icon.png";
 import CloudBackground from "../assests/CloudBackground.png";
 import formatDate from "../Helper/formatDate";
 
-function MainNav({ weather_details, handleInput, handleSearch }) {
-  console.log("PROPS", weather_details);
+function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
   const [display_main_nav, setDisplayMainNav] = useState(true);
-  // const [countryToSearch, setCountryToSearch] = useState("");
   const searchedCountryRef = useRef();
 
   // hide search section when the close button is clicked
@@ -27,17 +25,12 @@ function MainNav({ weather_details, handleInput, handleSearch }) {
     return today;
   }
 
-  // function handleInput(e) {
-  //   console.log("typing....");
-  //   let userInput = e.target.value;
-  //   setCountryToSearch(userInput);
-  //   console.log("country to search", countryToSearch);
-  //   console.log(userInput);
-  // }
+  function handleSearch(countryName) {
+    setCountryToSearch(countryName);
+    console.log("REF", countryName);
 
-  // function handleSearch(country) {
-  //   alert(countryToSearch);
-  // }
+    console.log("country to search", countryToSearch);
+  }
 
   // contains main navigation and weather overview
   const main_navigation_template = (
@@ -118,9 +111,9 @@ function MainNav({ weather_details, handleInput, handleSearch }) {
             className="btn rounded-0 btn-secondary my-2 my-sm-0"
             type="button"
             onClick={() => {
-              // handleSearch(searchedCountryRef.current);
-              console.log(searchedCountryRef);
-              console.log(searchedCountryRef.current.value);
+              let input_text = searchedCountryRef.current.value;
+
+              handleSearch(input_text);
             }}
           >
             Search

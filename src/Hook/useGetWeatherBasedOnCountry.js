@@ -1,41 +1,40 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 let BaseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline`;
 let api_key = process.env.REACT_APP_API_KEY;
 
-async function useGetWeatherRequest(
+async function useGetWeatherBaseOnCounty(
   weather_details,
   setWeatherDetails,
   setIsLoading,
   countryToSearch
 ) {
+  console.log("working");
   useEffect(() => {
     (async () => {
-      let location = countryToSearch;
-      console.log("getting data...");
-
       try {
         const response = await fetch(
-          `${BaseUrl}/${location}/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
+          `${BaseUrl}/${countryToSearch}/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
           {
             method: "GET",
           }
         );
 
         const data = await response.json();
-        console.log("new DATA", data);
+        console.log("COUNTRY", data);
         let details = data;
-        setWeatherDetails(details);
+        setWeatherDetails(...weather_details, details);
 
         setIsLoading(false);
-
-        return weather_details;
+        return data;
       } catch (err) {
         if (err) {
           console.log(err);
         }
       }
+
+      return weather_details;
     })();
   }, [countryToSearch]);
 }
 
-export default useGetWeatherRequest;
+export default useGetWeatherBaseOnCounty;

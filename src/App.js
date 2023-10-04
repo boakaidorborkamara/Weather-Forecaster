@@ -3,30 +3,30 @@ import React, { useState } from "react";
 import MainNav from "./components/MainNav";
 import TemperatureButton from "./components/TemperatureButtons";
 import useGetWeatherRequest from "./Hook/useGetWeatherRequest";
+import useGetWeatherBaseOnCounty from "./Hook/useGetWeatherBasedOnCountry";
 import LoadingScreen from "./components/LoadingScreen";
 import FiveDaysForecastSection from "./components/FiveDaysForecastSection";
 import TodayHighlightSection from "./components/TodayHilightSection";
 import Footer from "./components/Footer";
 
 function App() {
-  let [weather_details, setWeatherDetails] = useState([]);
-  let [isLoading, setIsLoading] = useState(true);
-  const [countryToSearch, setCountryToSearch] = useState("");
+  const [weather_details, setWeatherDetails] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [countryToSearch, setCountryToSearch] = useState("Algeria");
+  const [userLocation, setUserLocation] = useState("");
 
   // get weather details base on user location
-  useGetWeatherRequest(weather_details, setWeatherDetails, setIsLoading);
+  useGetWeatherRequest(
+    weather_details,
+    setWeatherDetails,
+    setIsLoading,
+    countryToSearch
+  );
 
-  function handleInput(e) {
-    console.log("typing....");
-    let userInput = e.target.value;
-    setCountryToSearch(userInput);
-    console.log("country to search", countryToSearch);
-    console.log(userInput);
-  }
+  // setCountryToSearch("countryName");
+  console.log("country to search", countryToSearch);
 
-  function handleSearch(countryToSearch) {
-    alert("REF", countryToSearch);
-  }
+  function getSearchedResult() {}
 
   // conditionally render loading screen or main content
   let content;
@@ -39,8 +39,8 @@ function App() {
           {/* aside */}
           <MainNav
             weather_details={weather_details}
-            handleInput={handleInput}
-            handleSearch={handleSearch}
+            setCountryToSearch={setCountryToSearch}
+            countryToSearch={countryToSearch}
           />
           {/* main area */}
           <main
