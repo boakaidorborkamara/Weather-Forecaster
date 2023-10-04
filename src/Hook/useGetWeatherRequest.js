@@ -12,7 +12,7 @@ async function useGetWeatherRequest(
     (async () => {
       let location = countryToSearch;
       console.log("getting data...");
-
+      setIsLoading(true);
       try {
         const response = await fetch(
           `${BaseUrl}/${location}/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
