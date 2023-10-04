@@ -28,6 +28,7 @@ function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
   function handleSearch(countryName) {
     setCountryToSearch(countryName);
     console.log("REF", countryName);
+    setDisplayMainNav(true);
 
     console.log("country to search", countryToSearch);
   }
