@@ -110,13 +110,13 @@ function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
       <div>
         <form className="form-inline my-2 my-lg-0 d-flex">
           <input
-            className="form-control mr-sm-2 rounded-0"
+            className="form-control mr-sm-2 rounded-0 "
             type="text"
             ref={searchedCountryRef}
             placeholder="Search location"
           />
           <button
-            className="btn rounded-0 btn-secondary my-2 my-sm-0"
+            className="btn rounded-0 btn-secondary  "
             type="button"
             onClick={() => {
               let input_text = searchedCountryRef.current.value;
