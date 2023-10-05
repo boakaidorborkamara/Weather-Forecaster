@@ -8,6 +8,7 @@ import formatDate from "../Helper/formatDate";
 function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
   const [display_main_nav, setDisplayMainNav] = useState(true);
   const searchedCountryRef = useRef();
+  const countriesRef = useRef();
 
   // hide search section when the close button is clicked
   const handleClose = () => {
@@ -23,6 +24,10 @@ function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
   function convertDate(epoch_timestamp) {
     let today = new Date(epoch_timestamp * 1000).toLocaleDateString();
     return today;
+  }
+
+  function getCountryName(county) {
+    console.log("working", countriesRef.current.innerText);
   }
 
   function handleSearch(countryName) {
@@ -124,9 +129,33 @@ function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
 
       {/* default countries  */}
       <ul className="list-group list-group-flush mt-5 ">
-        <li className="list-group-item my-3 text-white ">Liberia</li>
-        <li className="list-group-item my-3 text-white ">Ghana</li>
-        <li className="list-group-item my-3 text-white">Guinea</li>
+        <li
+          className="list-group-item my-3 text-white "
+          ref={countriesRef}
+          onClick={() => {
+            getCountryName(countriesRef);
+          }}
+        >
+          Liberia
+        </li>
+        <li
+          className="list-group-item my-3 text-white "
+          ref={countriesRef}
+          onClick={() => {
+            getCountryName(countriesRef);
+          }}
+        >
+          Ghana
+        </li>
+        <li
+          className="list-group-item my-3 text-white"
+          ref={countriesRef}
+          onClick={() => {
+            getCountryName(countriesRef);
+          }}
+        >
+          Guinea
+        </li>
       </ul>
     </div>
   );
