@@ -21,7 +21,11 @@ async function useGetWeatherRequest(
           }
         );
 
-        if (!response.ok && response.status === 400) {
+        if (
+          response.ok === false ||
+          response.status === 404 ||
+          response.status === 400
+        ) {
           alert("Weather detials not fetch! Verify country name");
           return;
         }
