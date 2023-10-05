@@ -1,10 +1,14 @@
-body {
-  background-color: red;
+.card-img-container {
+  height: 80%;
 }
 
 .card-image {
   width: 60%;
 }
+
+/* .card-date {
+  height: 20%;
+} */
 
 .weather-details-card {
   background-color: #1e213a;

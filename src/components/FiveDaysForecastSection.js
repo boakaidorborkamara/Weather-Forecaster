@@ -3,7 +3,7 @@ import DailyWeatherDetailsCard from "./DailyWeatherDetailsCard";
 function FiveDaysForecastSection({ weather_details }) {
   console.log("five", weather_details);
   return (
-    <section className=" w-75 row justify-content-center  text-center text-white ">
+    <section className=" w-75 d-lg-flex    justify-content-center  text-center text-white ">
       {weather_details.days.map((day) => {
         let day_index = weather_details.days.indexOf(day);
 
