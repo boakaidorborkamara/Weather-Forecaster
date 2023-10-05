@@ -12,7 +12,7 @@ async function useGetWeatherRequest(
     (async () => {
       let location = countryToSearch;
       console.log("getting data...");
-      setIsLoading(true);
+
       try {
         const response = await fetch(
           `${BaseUrl}/${location}/next5days?unitGroup=metric&include=days%2Ccurrent&key=${api_key}&contentType=json`,
@@ -20,6 +20,15 @@ async function useGetWeatherRequest(
             method: "GET",
           }
         );
+
+        if (!response.ok && response.status === 400) {
+          alert("Weather detials not fetch! Verify country name");
+          return;
+        }
+
+        setIsLoading(true);
+
+        console.log("response", response);
 
         const data = await response.json();
         console.log("new DATA", data);
@@ -31,7 +40,7 @@ async function useGetWeatherRequest(
         return weather_details;
       } catch (err) {
         if (err) {
-          console.log(err);
+          console.log("eRR", err);
         }
       }
     })();
