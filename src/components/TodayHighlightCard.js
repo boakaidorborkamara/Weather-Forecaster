@@ -2,7 +2,7 @@ import React from "react";
 
 function TodayHighlightCard({ card_name, value, measurement }) {
   return (
-    <div className="weather-details-card py-4 m-2  col-5">
+    <div className="weather-details-card py-4 m-2  col-lg-5">
       <div>
         <p>{card_name}</p>
       </div>

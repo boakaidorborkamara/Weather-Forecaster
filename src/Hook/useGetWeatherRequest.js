@@ -21,6 +21,7 @@ async function useGetWeatherRequest(
           }
         );
 
+        // check response and notify user if resourses is not seen
         if (
           response.ok === false ||
           response.status === 404 ||
