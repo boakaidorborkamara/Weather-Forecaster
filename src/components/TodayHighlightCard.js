@@ -9,7 +9,7 @@ function TodayHighlightCard({ card_name, value, measurement }) {
       <div>
         <h2 className="fs-1">
           {value}
-          <span className="fs-3">{measurement}</span>
+          <span className="fs-3 hilight-symbol">{measurement}</span>
         </h2>
       </div>
     </div>

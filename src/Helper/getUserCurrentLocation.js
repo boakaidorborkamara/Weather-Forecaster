@@ -1,11 +1,10 @@
-async function getUserCurrentLocationCoordinates() {
+async function getUserCurrentLocation() {
   // get and return the position of the user
   return new Promise((resolve, reject) => {
     function success(position) {
-      let location_detials = {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      };
+      let location_detials = [
+        `${position.coords.latitude},${position.coords.longitude}`,
+      ];
       resolve(location_detials);
     }
 
@@ -23,4 +22,4 @@ async function getUserCurrentLocationCoordinates() {
   });
 }
 
-export default getUserCurrentLocationCoordinates;
+export default getUserCurrentLocation;

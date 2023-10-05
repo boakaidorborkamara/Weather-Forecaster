@@ -70,7 +70,8 @@ function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
               />
             </div>
             <h1 id="tempeture-text" className="mt-5 pt-5">
-              {weather_details.currentConditions.feelslike}℃
+              {weather_details.currentConditions.feelslike}
+              <span id="recent_temp_symbol">℃</span>
             </h1>
             <p className="fs-2 my-5">
               {weather_details.currentConditions.conditions}

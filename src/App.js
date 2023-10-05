@@ -1,9 +1,9 @@
 // require("dotenv").config();
 import React, { useState } from "react";
+import getUserCurrentLocation from "./Helper/getUserCurrentLocation";
 import MainNav from "./components/MainNav";
 import TemperatureButton from "./components/TemperatureButtons";
 import useGetWeatherRequest from "./Hook/useGetWeatherRequest";
-import useGetWeatherBaseOnCounty from "./Hook/useGetWeatherBasedOnCountry";
 import LoadingScreen from "./components/LoadingScreen";
 import FiveDaysForecastSection from "./components/FiveDaysForecastSection";
 import TodayHighlightSection from "./components/TodayHilightSection";
@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 function App() {
   const [weather_details, setWeatherDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [countryToSearch, setCountryToSearch] = useState("Algeria");
+  const [countryToSearch, setCountryToSearch] = useState("Liberia");
   const [userLocation, setUserLocation] = useState("");
 
   // get weather details base on user location

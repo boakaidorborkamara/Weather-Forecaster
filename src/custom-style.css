@@ -14,6 +14,9 @@
   background-color: #1e213a;
 }
 
+.hilight-symbol {
+  font-weight: lighter;
+}
 #aside {
   background-color: #1e213a;
 }
@@ -42,6 +45,10 @@
   background-color: #100e1d;
 }
 
+#recent_temp_symbol {
+  font-size: 0.5em;
+  color: #aeacac;
+}
 #tempeture-text {
   font-size: 6em;
 }
