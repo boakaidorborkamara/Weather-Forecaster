@@ -63,7 +63,7 @@ function MainNav({ weather_details, setCountryToSearch, countryToSearch }) {
         {/* today's weather details  */}
         <div className="text-white " id="aside-text-container">
           <div>
-            <div className="mb-5 pb-5">
+            <div className="mb-5 pb-3">
               <img
                 src={require(`../assests/${weather_details.currentConditions.icon}.svg`)}
                 id="current-day-weather-icon"

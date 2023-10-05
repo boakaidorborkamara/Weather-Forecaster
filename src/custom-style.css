@@ -59,6 +59,11 @@ body {
   background: none !important;
 }
 
+input[type="text"] {
+  color: white !important;
+  /* background-color: wheat !important; */
+}
+
 input::placeholder {
   color: rgb(148, 146, 146) !important;
 }
